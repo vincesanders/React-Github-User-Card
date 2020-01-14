@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import GitHubUserCard from './components/GitHubUserCard';
 import './App.css';
 
 class App extends React.Component {
@@ -19,7 +20,8 @@ class App extends React.Component {
           profilePage: res.data.html_url,
           followers: res.data.followers,
           following: res.data.following,
-          bio: res.data.bio
+          bio: res.data.bio,
+          id: res.data.id
         }
         users = [...users, gHUser];
         this.setState({gHUsers: [gHUser]});
@@ -41,7 +43,8 @@ class App extends React.Component {
                 profilePage: res.data.html_url,
                 followers: res.data.followers,
                 following: res.data.following,
-                bio: res.data.bio
+                bio: res.data.bio,
+                id: res.data.id
               }
               users = [...users, gHUser];
               this.setState({gHUsers: users});
@@ -57,7 +60,6 @@ class App extends React.Component {
       });
   }
   render() {
-    console.log(this.state);
     return (
       <div className="container">
         <div className="header">
@@ -65,6 +67,9 @@ class App extends React.Component {
           <p>❤️'s</p>
           <img src={require("./assets/githublogo.png")} alt="GitHub Logo" />
         </div>
+        {this.state.gHUsers.map(user => {
+          return <GitHubUserCard key={user.id} data={user} />;
+        })}
       </div>
     );
   }
