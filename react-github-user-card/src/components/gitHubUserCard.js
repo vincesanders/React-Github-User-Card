@@ -1,4 +1,5 @@
 import React from 'react';
+import GitHubCalendar from './GitHubCalendar';
 
 export default props => {
     return (
@@ -13,6 +14,7 @@ export default props => {
                 <p>following: {props.data.following}</p>
                 <p>Bio: {props.data.bio}</p>
             </div>
+            <GitHubCalendar username={props.data.username}/>
         </div>
     );
 }

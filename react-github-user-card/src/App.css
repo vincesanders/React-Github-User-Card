@@ -95,6 +95,7 @@ body {
   width: 100%;
   padding: 20px;
   display: flex;
+  flex-wrap: wrap;
   border-radius: 5px;
   box-shadow: 0 1px 6px -2px #000;
   background-color: #FFF;
@@ -121,4 +122,26 @@ body {
   font-size: 1.8rem;
   font-style: italic;
   margin: 3px 0 10px;
+}
+
+.calendar-container {
+  width: 100%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.week {
+  width: 1.5%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.day {
+  width: 100%;
+  padding-top: 100%; /* Kind of a hack to make the height elqual to the width */
+  margin: 2px 0;
+  /* background: #ebedf0; */
+  background: black;
 }
